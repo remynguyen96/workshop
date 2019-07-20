@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpecs from './services/swagger-specs';
 import productsRoutes from './routes/products';
+import categoriesRoutes from './routes/categories';
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 
 // register routes
 app.use('/products', productsRoutes);
+app.use('/categories', categoriesRoutes);
 
 // api docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
